@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content">
+      <button class="button-85 mt-4" id="nuevaFrase">
+        <h1>¡Feliz cumpleaños!</h1>
+        <span>(Presiona aquí)</span>
+      </button>
+
+      <div id="idQuote" class="mt-4 text-center">
+        <span id="frase"> </span>
+      </div>
+    </div>
+    <canvas id="birthday"></canvas>
+    <script src="main.js"></script>
+    <script>
+      // Array de frases
+      var frases = [
+        "Los años pasan y las personas van y vienen. Pero otras, se quedan en nuestros corazones para siempre como tú. ¡Feliz día!",
+        "Deseo que todos tus sueños se hagan realidad, no mereces menos. ¡Felicidades!",
+        "¿Sabes una cosa? Todos tenemos mucha suerte de tenerte en nuestras vidas. ¡Feliz cumpleaños!.",
+        "El tiempo es lo único en la vida que si dejamos ir ya no volverá, así que no lo desperdiciemos en ningún momento.",
+      ];
+
+      // Función para obtener una frase aleatoria
+      function fraseAleatoria() {
+        var indice = Math.floor(Math.random() * frases.length);
+        return frases[indice];
+      }
+
+      // Función para actualizar la frase en el HTML
+      function actualizarFrase() {
+        var quote = document.getElementById("idQuote");
+        quote.classList.add("quote")
+        document.getElementById("frase").textContent = fraseAleatoria();
+      }
+
+      // Agregar evento de clic al botón
+      document
+        .getElementById("nuevaFrase")
+        .addEventListener("click", actualizarFrase);
+    </script>
+  </body>
+</html>
